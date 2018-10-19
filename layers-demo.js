@@ -75,9 +75,52 @@ function layerId(x){
 
 map.on('load', function () {
 
-    function addLayer(x){
+    function addPoints(x, props){
+	
+	map.addLayer(Object.assign({
+            'id': x.id,
+            'type': 'circle',
+            'source': {
+		'type':'vector',
+		'url':x.url,
+	    },
+            'source-layer': x.layer,
+            'layout': {
+		'visibility': 'visible',
+            },
+            'paint': {
+		'circle-radius': 6,
+		// "circle-stroke-color":"black",
+		// 'circle-stroke-width':2,
+		'circle-color': 'gold'
+	    }
+	}, props));
 
-	map.addLayer({
+	map.on('click', x.id,function (e) {
+	    if (! x.description){ return }
+	    var coordinates = e.features[0].geometry.coordinates.slice();
+	    var description = x.description(e);
+
+	    // Ensure that if the map is zoomed out such that multiple
+	    // copies of the feature are visible, the popup appears
+	    // over the copy being pointed to.
+	    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+		coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+	    }
+
+	    new mapboxgl.Popup()
+		.setLngLat(coordinates)
+		.setHTML(description)
+		.addTo(map);
+	});
+    }
+	
+
+    function addLayer(x, props){
+
+	var props = props || {};
+	
+	map.addLayer(Object.assign({
             'id': layerId(x),
             'type': 'fill',
             'source': {
@@ -100,7 +143,7 @@ map.on('load', function () {
 		// "fill-color":"rgba(240,240,100,0.75)"
 		
             }
-	});
+	}, props));
     }
 
     var i;
@@ -123,6 +166,36 @@ map.on('load', function () {
 
     map.fitBounds(bridgeportBounds);
     // map.addControl(new mapboxgl.Scale({position: 'bottom-right'}));
+
+    // add power plant points
+    addPoints({
+	id:"power-plants",
+	layer:"PowerPlants_US_EIA-5w7j2e",
+	url:"mapbox://borzechowski.9sf3lhbl",
+	description:function(e){
+	    return 	    "<div>" + e.features[0].properties.Plant_Name + "</div>" 
+		+ "<div>" + e.features[0].properties.Utility_Na + "</div>"
+		+ "<div><div>" + e.features[0].properties.source_des.split(", ").join("</div><div>") + "</div></div>";
+
+	},
+    });
+
+
+    // add power petroleum points
+    addPoints({
+	id:"petrol",
+	layer:"PetroleumProduct_Terminals_US-1wef9u",
+	url:"mapbox://borzechowski.43r5vjss",
+	description:function(e){
+	    return "<div>" + e.features[0].properties.Company + "</div>" 
+	}
+    },{
+	"paint":{
+	    "circle-color":"black",
+	    "circle-radius":6,
+	    // "circle-stroke-color":"black"
+	}
+    });
 
 });
 
