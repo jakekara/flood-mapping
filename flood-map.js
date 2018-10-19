@@ -139,6 +139,13 @@ class FloodMap {
 		    + "<div>" + e.features[0].properties.Utility_Na + "</div>"
 		    + "<div><div>" + e.features[0].properties.source_des.split(", ").join("</div><div>") + "</div></div>";
 	    },
+	},{
+	    "paint":{
+		"circle-color":"gold",
+		"circle-radius":6,
+		"circle-stroke-color":"black",
+		"circle-stroke-width":1
+	    }	    
 	});
 
 	// add power petroleum points
@@ -153,6 +160,8 @@ class FloodMap {
 	    "paint":{
 		"circle-color":"black",
 		"circle-radius":6,
+		"circle-stroke-color":"white",
+		"circle-stroke-width":1
 	    }
 	});
 	
