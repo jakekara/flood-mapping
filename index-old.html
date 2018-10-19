@@ -12,11 +12,15 @@
   <body>
 
     <div id="container">
+      <div id="controls">
+	<label for="level">Sea level rise</label>
+	<input type="range" id="level-slider" name="level"
+	       value="0" min="-1" max="6" />
+	<button type="button" id="animate-button">start</button>
+      </div>
       <div id="map"></div>  
     </div>
-    <script src="flood-levels.js"></script>    
-    <script src="sea-level-control.js"></script>
-    <script src="flood-map.js"></script>
-    <script src="bridgeport.js"></script>    
+    <script src="sea-level-control.js"></script> 
+    <script src="layers-demo.js"></script>
   </body>
 </html>

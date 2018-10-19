@@ -3,14 +3,11 @@ function setMapSize(element, maxHeight){
     var maxHeight = maxHeight || 500;
     var width = maxHeight;
     if (bbox.width < maxHeight){ width = bbox.width; }
-    // bbox.width = width;
-    // bbox.height = width;
-
-    // element.style.width = width + "px";
-    // element.style.height = (width * 1) + "px";    
+    element.style.width = width + "px";
+    element.style.height = (width * 1) + "px";    
 }
 
-setMapSize(document.getElementById("map"), 400);
+// setMapSize(document.getElementById("container"), 400);
 
 mapboxgl.accessToken =
     'pk.eyJ1IjoiYm9yemVjaG93c2tpIiwiYSI6Ik41S1pqVVkifQ.BuVnOmOsPKj5wStdRCCxrw';
@@ -132,10 +129,12 @@ map.on('load', function () {
 		'visibility': 'none',
             },
             'paint': {
+
 		"fill-antialias":true,
 		"fill-outline-color":"black",
-		// "fill-outline-color":"indianred",		
 		'fill-color':"rgba(129,193,238,0.7)",
+
+		// "fill-outline-color":"indianred",		
 		// 'fill-color':"rgba(120,0,0,0.25)",
 		// "fill-color":"rgba(0,0,0,0.75)",
 		// "fill-color":"rgba(49, 117, 165,0.75)",		
@@ -152,17 +151,18 @@ map.on('load', function () {
 	addLayer(level);
     }
 
-    map.addControl(new mapboxgl.ScaleControl({
-	unit: 'imperial',
-    }));
+    // map.addControl(new mapboxgl.ScaleControl({
+    // 	unit: 'imperial',
+    // }));
+
+    map.addControl(new SeaLevelControl(), "bottom-left");
 
     map.addControl(new mapboxgl.FullscreenControl());
     map.dragPan.enable();
     
-    var nav = new mapboxgl.NavigationControl({
-	"showCompass":false,
-    });
-    map.addControl(nav, 'top-left');
+    map.addControl(new mapboxgl.NavigationControl({"showCompass":false,}),
+		   "top-left");
+
 
     map.fitBounds(bridgeportBounds);
     // map.addControl(new mapboxgl.Scale({position: 'bottom-right'}));

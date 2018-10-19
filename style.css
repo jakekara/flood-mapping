@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body { margin:0; padding:0; }
+
+sans {
+    font-family: 'Lato', sans-serif;
+}
+
+#container {
+    position:absolute;
+    height: 400px;
+    left: 0px;
+    right: 0px;
+}
+.mapboxgl-ctrl-bottom-right{
+    /* display: none; */
+}
+
+.mapboxgl-ctrl-top-left{
+    display:flex;
+    justify-content: space-around;
+    flex-grow: 1;
+    width: 100%;
+}
+.toggle-control {
+    pointer-events: auto;
+    width: 100%;
+    cursor: pointer;
+}
+.controls {
+    box-sixing: border-box;
+    /* border: 1px solid lightblue; */
+    
+    font-family: 'Lato', sans-serif;
+    /* background-color: rgba(255,255,255,0.9); */
+    /* background-color: white; */
+    text-align: center;
+}
+.controls:nth-child(even){
+    /* background-color: #efefef; */
+}
+
+.controls:hover{
+    /* background-color: rgba(255,255,255,0.8); */
+    background-color: rgba(129,193,238,0.9);
+    /* color: white; */
+}
+
+.controls.active{
+    background-color: gold;
+    background-color: rgba(129,193,238,0.9);
+}
+
+#controls {
+    /* color: white; */
+    
+    z-index: 1000;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+#map{
+    position:absolute;
+    top:0px;
+    bottom:0px;
+    width:100%; 
+}
+
+
+.mapboxgl-ctrl-top-left{
+/* .toggle-control{ */
+    background-color: #ffffff;
+    background-image:
+    linear-gradient(90deg,
+    		    rgba(73, 73, 73, 0.1) 0,
+    		    rgba(73, 73, 73, 0.1) 2%,
+    		    transparent 2%
+    		   ),
+    linear-gradient(180deg,
+    		    #ffffff 50%,
+    		    transparent 50%
+    		   ),
+    linear-gradient(90deg,
+    		    transparent 50%,
+    		    rgba(73, 73, 73, 0.5) 50%,
+    		    rgba(73, 73, 73, 0.5) 52%,
+    		    transparent 52%
+    		   ),
+    linear-gradient(180deg,
+    		    #ffffff 70%,
+    		    transparent 70%
+    		   ),
+    linear-gradient(90deg,
+    		    transparent 10%,
+    		    rgba(73, 73, 73, 0.4) 10%,
+    		    rgba(73, 73, 73, 0.4) 12%,
+    		    transparent 12%,
+
+    		    transparent 20%,
+    		    rgba(73, 73, 73, 0.4) 20%,
+    		    rgba(73, 73, 73, 0.4) 22%,
+    		    transparent 22%,
+
+    		    transparent 30%,
+    		    rgba(73, 73, 73, 0.4) 30%,
+    		    rgba(73, 73, 73, 0.4) 32%,
+    		    transparent 32%,
+
+    		    transparent 40%,
+    		    rgba(73, 73, 73, 0.4) 40%,
+    		    rgba(73, 73, 73, 0.4) 42%,
+    		    transparent 42%,
+
+    		    transparent 60%,
+    		    rgba(73, 73, 73, 0.4) 60%,
+    		    rgba(73, 73, 73, 0.4) 62%,
+    		    transparent 62%,
+
+    		    transparent 70%,
+    		    rgba(73, 73, 73, 0.4) 70%,
+    		    rgba(73, 73, 73, 0.4) 72%,
+    		    transparent 72%,
+
+    		    transparent 80%,
+    		    rgba(73, 73, 73, 0.4) 80%,
+    		    rgba(73, 73, 73, 0.4) 82%,
+    		    transparent 82%,
+
+    		    transparent 90%,
+    		    rgba(73, 73, 73, 0.4) 90%,
+    		    rgba(73, 73, 73, 0.4) 92%,
+    		    transparent 92%
+    		   );
+    background-size: 50px 23px;
+    background-repeat: repeat-x;
+    min-height: 23px;
+
+    /* only needed for labels */
+    white-space:nowrap;
+    /* font-size:0; */
+    margin:0;
+    padding:0;
+}
+
+/* .toggle-control { */
+/*     font-size:9px; */
+/*     padding-top:2px; */
+/*     display:inline-block; */
+/*     width:100px; */
+/*     text-indent:3px; */
+/* } */
