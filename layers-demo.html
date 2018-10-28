@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>Show and hide layers</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+
+    </style>
+</head>
+<body>
+
+  <style>
+    input[type="range"] {
+    }
+    #map{
+    height: 400px;
+    //    width: 400px;
+    width: 100%;
+    }
+</style>
+
+  <label for="level">Sea level rise</label>
+  <input type="range" id="level-slider" name="level"
+	 value="0" min="-1" max="6" />
+  <button type="button" id="animate-button">start</button>
+  
+<nav id="menu"></nav>
+<div id="map"></div>
+
+<script src="layers-demo.js"></script>
+
+</body>
+</html>
