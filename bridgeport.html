@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title>Flood map</title>
+    <meta name='viewport'
+	  content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+
+    <link rel="stylesheet"
+	  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css'
+	  rel='stylesheet' />
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="hed"></div>
+    <div id="explainer"></div>
+    <div id="legend"></div>
+    
+      <div style="" id="container">
+	<div id="map"></div>  
+      </div>
+    <script src="flood-levels.js"></script>
+    <script src="generic-control.js"></script>
+    <script src="pan-toggle-control.js"></script>
+    <script src="orient-toggle-control.js"></script>            
+    <script src="sea-level-control.js"></script>
+    <script src="flood-map.js"></script>
+    <script src="bridgeport.js"></script>
+    <script src="legend.js"></script>    
+    <script src="https://pym.nprapps.org/pym.v1.min.js"></script>
+    <script>
+      var pymChild = new pym.Child(); //({ polling: 500 });
+      // pymChild.sendHeight(300);
+    </script>
+  </body>
+</html>

@@ -3,8 +3,9 @@ function floodLayerId(x){
 }
 
 function floodLayerLabel(x){
-    if (Number(x.feet) === 0){ return "0 ft.";}
-    return x.feet;
+    return x.feet + " ft.";
+    // if (Number(x.feet) === 0){ return "0 ft.";}
+    // return x.feet;
 }
 
 const floodLevels = [
@@ -46,4 +47,3 @@ const floodLevels = [
     
 ];
 
-console.log("floodLevels", floodLevels);

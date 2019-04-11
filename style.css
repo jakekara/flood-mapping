@@ -1,27 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:900');
 
-body { margin:0; padding:0; }
 
-sans {
-    font-family: 'Lato', sans-serif;
+body {
+    margin:0; padding:0;
+    font-family: 'Lato', sans-serif;    
 }
+
+/* .controls{ */
+/*     font-family: "Merriweather", "Georgia", "Times", serif; */
+/*     font-weight: 900; */
+    
+/* } */
+
+/* sans { */
+/*     font-family: 'Lato', sans-serif; */
+/* } */
 
 #container {
-    position:absolute;
-    height: 400px;
-    left: 0px;
-    right: 0px;
+    /* position:absolute; */
+    /* height: 300px; */
+    height: 500px;
+    max-height: 90%;
+    
+    width: 100%;
+    /* left: 0px; */
+    /* right: 0px; */
 }
+
+#container.square{
+    position:relative;
+    height: 300px;
+    /* height: 100%; */
+    width: 300px;
+}
+
 .mapboxgl-ctrl-bottom-right{
     /* display: none; */
 }
 
 .mapboxgl-ctrl-top-left{
     display:flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: left; /* space-around; */
     flex-grow: 1;
-    width: 100%;
+    /* width: 100%; */
 }
+
+.mapboxgl-ctrl.toggle-control{
+    padding: 3px;
+    margin: 0px;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+.mapboxgl-ctrl.toggle-control,
 .toggle-control {
     pointer-events: auto;
     width: 100%;
@@ -32,24 +64,54 @@ sans {
     /* border: 1px solid lightblue; */
     
     font-family: 'Lato', sans-serif;
+    font-size: 17px;
     /* background-color: rgba(255,255,255,0.9); */
-    /* background-color: white; */
+    background-color: white;
+    margin: 2px;
+    border-radius: 4px;
+    border: 1px solid navy;;
+    
     text-align: center;
 }
 .controls:nth-child(even){
     /* background-color: #efefef; */
 }
 
-.controls:hover{
+.controls:hover,
+.controls.active{
     /* background-color: rgba(255,255,255,0.8); */
-    background-color: rgba(129,193,238,0.9);
+    /* background-color: rgba(129,193,238,0.9); */
     /* color: white; */
+
+
+    color: white;
+    
 }
 
-.controls.active{
-    background-color: gold;
-    background-color: rgba(129,193,238,0.9);
+.controls.active.on{
+    background-color: lightgreen;
 }
+
+.controls.off{
+    background-color: tomato;
+}
+
+
+.controls.active{
+    background-color: orange;
+}
+
+.controls:hover{
+    background-color: lightgreen;
+}
+
+/* .controls.active{ */
+/*     background-color: gold; */
+/*     /\* background-color: rgba(129,193,238,1); *\/ */
+/*     background-color: navy; */
+/*     color: white; */
+/*     border: 1px sold white; */
+/* } */
 
 #controls {
     /* color: white; */
@@ -61,87 +123,91 @@ sans {
     right: 0px;
 }
 #map{
-    position:absolute;
-    top:0px;
-    bottom:0px;
-    width:100%; 
+    /* position:absolute; */
+    /* top:0px; */
+    /* bottom:0px; */
+    /* width:100%;  */
+    /* height: 300px; */
+    height: 100%;
+    width: 100%;
 }
 
 
-.mapboxgl-ctrl-top-left{
-/* .toggle-control{ */
-    background-color: #ffffff;
-    background-image:
-    linear-gradient(90deg,
-    		    rgba(73, 73, 73, 0.1) 0,
-    		    rgba(73, 73, 73, 0.1) 2%,
-    		    transparent 2%
-    		   ),
-    linear-gradient(180deg,
-    		    #ffffff 50%,
-    		    transparent 50%
-    		   ),
-    linear-gradient(90deg,
-    		    transparent 50%,
-    		    rgba(73, 73, 73, 0.5) 50%,
-    		    rgba(73, 73, 73, 0.5) 52%,
-    		    transparent 52%
-    		   ),
-    linear-gradient(180deg,
-    		    #ffffff 70%,
-    		    transparent 70%
-    		   ),
-    linear-gradient(90deg,
-    		    transparent 10%,
-    		    rgba(73, 73, 73, 0.4) 10%,
-    		    rgba(73, 73, 73, 0.4) 12%,
-    		    transparent 12%,
 
-    		    transparent 20%,
-    		    rgba(73, 73, 73, 0.4) 20%,
-    		    rgba(73, 73, 73, 0.4) 22%,
-    		    transparent 22%,
+/* .mapboxgl-ctrl-top-left{ */
+/* /\* .toggle-control{ *\/ */
+/*     background-color: #ffffff; */
+/*     background-image: */
+/*     linear-gradient(90deg, */
+/*     		    rgba(73, 73, 73, 0.1) 0, */
+/*     		    rgba(73, 73, 73, 0.1) 2%, */
+/*     		    transparent 2% */
+/*     		   ), */
+/*     linear-gradient(180deg, */
+/*     		    #ffffff 50%, */
+/*     		    transparent 50% */
+/*     		   ), */
+/*     linear-gradient(90deg, */
+/*     		    transparent 50%, */
+/*     		    rgba(73, 73, 73, 0.5) 50%, */
+/*     		    rgba(73, 73, 73, 0.5) 52%, */
+/*     		    transparent 52% */
+/*     		   ), */
+/*     linear-gradient(180deg, */
+/*     		    #ffffff 70%, */
+/*     		    transparent 70% */
+/*     		   ), */
+/*     linear-gradient(90deg, */
+/*     		    transparent 10%, */
+/*     		    rgba(73, 73, 73, 0.4) 10%, */
+/*     		    rgba(73, 73, 73, 0.4) 12%, */
+/*     		    transparent 12%, */
 
-    		    transparent 30%,
-    		    rgba(73, 73, 73, 0.4) 30%,
-    		    rgba(73, 73, 73, 0.4) 32%,
-    		    transparent 32%,
+/*     		    transparent 20%, */
+/*     		    rgba(73, 73, 73, 0.4) 20%, */
+/*     		    rgba(73, 73, 73, 0.4) 22%, */
+/*     		    transparent 22%, */
 
-    		    transparent 40%,
-    		    rgba(73, 73, 73, 0.4) 40%,
-    		    rgba(73, 73, 73, 0.4) 42%,
-    		    transparent 42%,
+/*     		    transparent 30%, */
+/*     		    rgba(73, 73, 73, 0.4) 30%, */
+/*     		    rgba(73, 73, 73, 0.4) 32%, */
+/*     		    transparent 32%, */
 
-    		    transparent 60%,
-    		    rgba(73, 73, 73, 0.4) 60%,
-    		    rgba(73, 73, 73, 0.4) 62%,
-    		    transparent 62%,
+/*     		    transparent 40%, */
+/*     		    rgba(73, 73, 73, 0.4) 40%, */
+/*     		    rgba(73, 73, 73, 0.4) 42%, */
+/*     		    transparent 42%, */
 
-    		    transparent 70%,
-    		    rgba(73, 73, 73, 0.4) 70%,
-    		    rgba(73, 73, 73, 0.4) 72%,
-    		    transparent 72%,
+/*     		    transparent 60%, */
+/*     		    rgba(73, 73, 73, 0.4) 60%, */
+/*     		    rgba(73, 73, 73, 0.4) 62%, */
+/*     		    transparent 62%, */
 
-    		    transparent 80%,
-    		    rgba(73, 73, 73, 0.4) 80%,
-    		    rgba(73, 73, 73, 0.4) 82%,
-    		    transparent 82%,
+/*     		    transparent 70%, */
+/*     		    rgba(73, 73, 73, 0.4) 70%, */
+/*     		    rgba(73, 73, 73, 0.4) 72%, */
+/*     		    transparent 72%, */
 
-    		    transparent 90%,
-    		    rgba(73, 73, 73, 0.4) 90%,
-    		    rgba(73, 73, 73, 0.4) 92%,
-    		    transparent 92%
-    		   );
-    background-size: 50px 23px;
-    background-repeat: repeat-x;
-    min-height: 23px;
+/*     		    transparent 80%, */
+/*     		    rgba(73, 73, 73, 0.4) 80%, */
+/*     		    rgba(73, 73, 73, 0.4) 82%, */
+/*     		    transparent 82%, */
 
-    /* only needed for labels */
-    white-space:nowrap;
-    /* font-size:0; */
-    margin:0;
-    padding:0;
-}
+/*     		    transparent 90%, */
+/*     		    rgba(73, 73, 73, 0.4) 90%, */
+/*     		    rgba(73, 73, 73, 0.4) 92%, */
+/*     		    transparent 92% */
+/*     		   ); */
+/*     background-size: 50px 23px; */
+/*     background-repeat: repeat-x; */
+/*     min-height: 23px; */
+
+/*     /\* only needed for labels *\/ */
+/*     white-space:nowrap; */
+/*     /\* font-size:0; *\/ */
+/*     margin:0; */
+/*     padding:0; */
+/* } */
 
 /* .toggle-control { */
 /*     font-size:9px; */
@@ -150,3 +216,54 @@ sans {
 /*     width:100px; */
 /*     text-indent:3px; */
 /* } */
+
+.legend{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    
+}
+
+.legend-item{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.legend-item-icon{
+    margin-right: 2px;
+}
+
+.legend-circle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+ }
+
+.legend-control{
+}
+
+.legend-circle.power-plant{
+    background-color: gold;
+    border: 1px solid black;
+}
+
+.legend-circle.house-elevation{
+    background-color: magenta;
+    border: 1px solid black;
+}
+
+.legend-circle.petroleum-terminal{
+    background-color: tomato;
+    border: 1px solid black;
+}
+
+#explainer {
+    color: gray;
+    margin-bottom: 6px;
+}
+
+.legend{
+    color: gray;
+    font-size: small;
+}
